@@ -1,0 +1,114 @@
+ResetControlMode:
+  description: Resets the control mode to unset
+  class_name: ${PROJECT_NAME}::SetControlMode
+  topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_SET_CONTROL_MODE_SRV}
+  port_default:
+    yaw_mode: 0
+    control_mode: 0
+    reference_frame: 0
+  hidden_ports:
+    - yaw_mode
+    - control_mode
+    - reference_frame
+
+SetVelocityControlMode:
+  description: Sets the control mode to YAW_SPEED + SPEED
+  class_name: ${PROJECT_NAME}::SetControlMode
+  topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_SET_CONTROL_MODE_SRV}
+  port_default:
+    yaw_mode: 2
+    control_mode: 3
+    reference_frame: 2
+  hidden_ports:
+    - yaw_mode
+    - control_mode
+
+SetPositionControlMode:
+  description: Sets the control mode to YAW_ANGLE + POSITION
+  class_name: ${PROJECT_NAME}::SetControlMode
+  topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_SET_CONTROL_MODE_SRV}
+  port_default:
+    yaw_mode: 1
+    control_mode: 2
+    reference_frame: 1
+  hidden_ports:
+    - yaw_mode
+    - control_mode
+
+SetTrajectoryControlMode:
+  description: Sets the control mode to YAW_ANGLE + TRAJECTORY
+  class_name: ${PROJECT_NAME}::SetControlMode
+  topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_SET_CONTROL_MODE_SRV}
+  port_default:
+    yaw_mode: 1
+    control_mode: 7
+    reference_frame: 1
+  hidden_ports:
+    - yaw_mode
+    - control_mode
+
+Arm:
+  description: Arms the drone
+  class_name: auto_apms_behavior_tree::SetBool
+  topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_ARMING_STATE_SRV}
+  port_alias:
+    topic: drone (Name of the target drone.)
+  port_default:
+    data: true
+  hidden_ports:
+    - data
+
+Disarm:
+  description: Disarms the drone
+  class_name: auto_apms_behavior_tree::SetBool
+  topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_ARMING_STATE_SRV}
+  port_alias:
+    topic: drone (Name of the target drone.)
+  port_default:
+    data: false
+  hidden_ports:
+    - data
+
+EnableOffboardMode:
+  description: Enables offboard mode
+  class_name: auto_apms_behavior_tree::SetBool
+  topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_OFFBOARD_MODE_SRV}
+  port_alias:
+    topic: drone (Name of the target drone.)
+  port_default:
+    data: true
+  hidden_ports:
+    - data
+
+DisableOffboardMode:
+  description: Disables offboard mode
+  class_name: auto_apms_behavior_tree::SetBool
+  topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_OFFBOARD_MODE_SRV}
+  port_alias:
+    topic: drone (Name of the target drone.)
+  port_default:
+    data: false
+  hidden_ports:
+    - data
+
+Takeoff:
+  description: Commands the drone to initialize takeoff
+  class_name: auto_apms_behavior_tree::SetBool
+  topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_TAKEOFF_SRV}
+  port_alias:
+    topic: drone (Name of the target drone.)
+  port_default:
+    data: true
+  hidden_ports:
+    - data
+
+Land:
+  description: Commands the drone to initialize landing
+  class_name: auto_apms_behavior_tree::SetBool
+  topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_LAND_SRV}
+  port_alias:
+    topic: drone (Name of the target drone.)
+  port_default:
+    data: true
+  hidden_ports:
+    - data
