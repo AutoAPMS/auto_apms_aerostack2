@@ -95,6 +95,7 @@ Takeoff:
   description: Commands the drone to initialize takeoff
   class_name: auto_apms_behavior_tree::SetBool
   topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_TAKEOFF_SRV}
+  request_timeout: 10
   port_alias:
     topic: drone (Name of the target drone.)
   port_default:
@@ -106,6 +107,7 @@ Land:
   description: Commands the drone to initialize landing
   class_name: auto_apms_behavior_tree::SetBool
   topic: /(input:drone)/${_AUTO_APMS_AEROSTACK2__PLATFORM_LAND_SRV}
+  request_timeout: 10
   port_alias:
     topic: drone (Name of the target drone.)
   port_default:
